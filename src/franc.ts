@@ -1,16 +1,7 @@
-export class Franc {
-  private amount: number
+import { Money } from './money'
 
-  constructor(amount: number) {
-    this.amount = amount
-  }
-
+export class Franc extends Money {
   times(multiplier: number): Franc {
     return new Franc(this.amount * multiplier)
-  }
-
-  equlas(object: Franc): boolean {
-    const franc = object
-    return this.amount == franc.amount
   }
 }
