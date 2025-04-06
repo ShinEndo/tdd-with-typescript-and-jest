@@ -1,3 +1,5 @@
+import { Franc } from '../src/franc'
+import { Money } from '../src/money'
 import { MoneyFactory } from '../src/moneyFactory'
 
 test('', () => {
@@ -25,4 +27,8 @@ test('', () => {
 test('', () => {
   expect(MoneyFactory.dollar(1).getCurrency()).toBe('USD')
   expect(MoneyFactory.franc(1).getCurrency()).toBe('CHF')
+})
+
+test('', () => {
+  expect(new Money(10, 'CHF').equals(new Franc(10, 'CHF'))).toBe(true)
 })
