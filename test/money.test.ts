@@ -63,3 +63,23 @@ test('test mixed addition', () => {
   const result = bank.reduce(fiveBucks.plus(tenFrancs), 'USD')
   expect(result).toStrictEqual(Money.dollar(10))
 })
+
+test('test sum plus money', () => {
+  const fiveBucks = Money.dollar(5)
+  const tenFrancs = Money.franc(10)
+  const bank = new Bank()
+  bank.addRate('CHF', 'USD', 2)
+  const sum = new Sum(fiveBucks, tenFrancs).plus(fiveBucks)
+  const result = bank.reduce(sum, 'USD')
+  expect(result).toStrictEqual(Money.dollar(15))
+})
+
+test('test sum times', () => {
+  const fiveBucks = Money.dollar(5)
+  const tenFrancs = Money.franc(10)
+  const bank = new Bank()
+  bank.addRate('CHF', 'USD', 2)
+  const sum = new Sum(fiveBucks, tenFrancs).times(2)
+  const result = bank.reduce(sum, 'USD')
+  expect(result).toStrictEqual(Money.dollar(20))
+})
