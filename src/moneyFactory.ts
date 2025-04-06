@@ -4,10 +4,10 @@ import { Money } from './money'
 
 export class MoneyFactory {
   static dollar(amount: number): Money {
-    return new Dollar(amount)
+    return new Dollar(amount, 'USD')
   }
 
   static franc(amount: number): Money {
-    return new Franc(amount)
+    return new Franc(amount, 'CHF')
   }
 }

@@ -21,3 +21,8 @@ test('', () => {
   expect(MoneyFactory.franc(5).equals(MoneyFactory.franc(5))).toBe(true)
   expect(MoneyFactory.franc(5).equals(MoneyFactory.franc(6))).toBe(false)
 })
+
+test('', () => {
+  expect(MoneyFactory.dollar(1).getCurrency()).toBe('USD')
+  expect(MoneyFactory.franc(1).getCurrency()).toBe('CHF')
+})

@@ -1,7 +1,11 @@
 import { Money } from './money'
+import { MoneyFactory } from './moneyFactory'
 
 export class Dollar extends Money {
   times(multiplier: number): Money {
-    return new Dollar(this.amount * multiplier)
+    return MoneyFactory.dollar(this.amount * multiplier)
+  }
+  getCurrency(): string {
+    return this.currency
   }
 }
