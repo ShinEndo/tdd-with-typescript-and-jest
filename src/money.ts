@@ -25,4 +25,12 @@ export class Money implements Expression {
     const money = object
     return this.amount == money.amount
   }
+
+  static dollar(amount: number): Money {
+    return new Money(amount, 'USD')
+  }
+
+  static franc(amount: number): Money {
+    return new Money(amount, 'CHF')
+  }
 }
