@@ -1,3 +1,4 @@
+import { Bank } from './../src/bank'
 import { MoneyFactory } from '../src/moneyFactory'
 
 test('', () => {
@@ -15,4 +16,13 @@ test('', () => {
 test('', () => {
   expect(MoneyFactory.dollar(1).getCurrency()).toBe('USD')
   expect(MoneyFactory.franc(1).getCurrency()).toBe('CHF')
+})
+
+test('', () => {
+  const sum = MoneyFactory.dollar(5).plus(MoneyFactory.dollar(5))
+  expect(sum).toStrictEqual(MoneyFactory.dollar(10))
+
+  const bank = new Bank()
+  const reduced = bank.reduce(sum, 'USD')
+  expect(reduced).toStrictEqual(MoneyFactory.dollar(10))
 })
